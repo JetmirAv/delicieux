@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "952778171689",
+    "firebase_url": "https://delicieux-5b867.firebaseio.com",
+    "project_id": "delicieux-5b867",
+    "storage_bucket": "delicieux-5b867.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952778171689:android:c8aa3172ae3b267dbc0338",
+        "android_client_info": {
+          "package_name": "edu.fiek.delicieux"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952778171689-311pr5uouu7hlbuaekebeiham2t8gqod.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.fiek.delicieux",
+            "certificate_hash": "93271954df6d58d0cf8eb033d1fa52a6718612b6"
+          }
+        },
+        {
+          "client_id": "952778171689-f0a3ldebthuajidq1mkh0r8enace8pdc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-3sccVnG9Qefa2_XXFXn6jGijrPWZUhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952778171689-f0a3ldebthuajidq1mkh0r8enace8pdc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,24 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_centerVertical="true"
-        >
+        android:layout_below="@+id/toolbar">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Login"
-            android:textSize="50sp"
-            android:textStyle="bold"
             android:layout_marginTop="10dp"
+            android:text="Create New Account"
+            android:gravity="center"
             android:textColor="@color/colorPrimary"
-            />
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:elevation="10dp"
+            android:outlineAmbientShadowColor="@android:color/darker_gray"
+            android:background="@drawable/white_boarder"
+            tools:targetApi="p">
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                app:met_floatingLabel="normal"
+                android:hint="User Name"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                app:met_baseColor="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:inputType="textPersonName"
+                app:met_textColor="@color/colorPrimaryDark"
+                />
+
+        </FrameLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -45,7 +71,8 @@
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:inputType="textEmailAddress"
-                app:met_textColor="@color/colorPrimaryDark" />
+                app:met_textColor="@color/colorPrimaryDark"
+                />
 
         </FrameLayout>
 
@@ -73,17 +100,77 @@
                 android:inputType="textPassword"
                 app:met_textColor="@color/colorPrimaryDark"
                 />
+
         </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:elevation="10dp"
+            android:outlineAmbientShadowColor="@android:color/darker_gray"
+            android:background="@drawable/white_boarder"
+            tools:targetApi="p">
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/mobile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                app:met_floatingLabel="normal"
+                android:hint="Mobile"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                app:met_baseColor="@color/colorPrimaryDark"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:inputType="textPhonetic"
+                app:met_textColor="@color/colorPrimaryDark"
+                />
+
+        </FrameLayout>
+
+        <RadioGroup
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/orange_boarder"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Male"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:targetApi="lollipop" />
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorPrimary"
+                android:text="Female"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:targetApi="lollipop" />
+
+        </RadioGroup>
 
         <ProgressBar
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:id="@+id/progressBar"
             android:layout_gravity="center"
-            android:indeterminateTint="@color/colorPrimary"
+            android:indeterminateTint="@color/colorPrimaryDark"
             tools:targetApi="lollipop"
             android:visibility="gone"/>
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -93,53 +180,19 @@
             android:elevation="10dp"
             android:outlineAmbientShadowColor="@android:color/darker_gray"
             android:background="@drawable/orange_boarder"
-            tools:targetApi="p">
-
-            <Button
-                android:id="@+id/login"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackground"
-                android:text="Login"
-                android:textAllCaps="false"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:elevation="10dp"
-            android:outlineAmbientShadowColor="@android:color/darker_gray"
-            android:background="@drawable/orange_boarder"
-            android:textColor="@color/colorPrimary"
             tools:targetApi="p">
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Register"
+
                 android:textColor="@color/colorPrimary"
                 android:textAllCaps="false"
                 android:id="@+id/register"
                 android:textSize="20sp"
                 android:background="?attr/selectableItemBackground"/>
         </FrameLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/forget"
-            android:text="Forget password?"
-            android:layout_margin="20sp"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:linksClickable="true"/>
 
     </LinearLayout>
-
 
 </RelativeLayout>

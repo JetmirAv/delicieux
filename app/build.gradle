@@ -1,5 +1,8 @@
+apply plugin: 'com.android.application'
 
 apply plugin: 'com.google.gms.google-services'
+
+apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 29
@@ -24,6 +27,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     def nav_version = "2.3.0-rc01"
 
     implementation fileTree(dir: "libs", include: ["*.jar"])

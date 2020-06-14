@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">delicieux</string>
+    <string name="splash">splash image</string>
+    <string name="explore_icon">Explore</string>
+    <string name="shopping_icon">Shopping list</string>
+    <string name="favourite_icon">Favourite</string>
+    <string name="profile_icon">Profile</string>
 </resources>

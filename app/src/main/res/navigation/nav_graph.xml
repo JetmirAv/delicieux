@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/explore">
+
+    <fragment
+        android:id="@+id/explore"
+        android:name="edu.fiek.delicieux.explore.ExploreFragment"
+        android:label="explore_fragment"
+        tools:layout="@layout/explore_fragment" />
+    <fragment
+        android:id="@+id/list"
+        android:name="edu.fiek.delicieux.list.ListFragment"
+        android:label="list_fragment"
+        tools:layout="@layout/list_fragment" />
+    <fragment
+        android:id="@+id/favourite"
+        android:name="edu.fiek.delicieux.favourite.FavouriteFragment"
+        android:label="favourit_fragment"
+        tools:layout="@layout/favourite_fragment" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="edu.fiek.delicieux.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
+</navigation>

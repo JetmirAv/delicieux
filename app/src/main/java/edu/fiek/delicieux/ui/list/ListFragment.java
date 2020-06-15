@@ -1,4 +1,4 @@
-package edu.fiek.delicieux.profile;
+package edu.fiek.delicieux.ui.list;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -14,24 +14,24 @@ import android.view.ViewGroup;
 
 import edu.fiek.delicieux.R;
 
-public class ProfileFragment extends Fragment {
+public class ListFragment extends Fragment {
 
-    private ProfileViewModel mViewModel;
+    private ListViewModel mViewModel;
 
-    public static ProfileFragment newInstance() {
-        return new ProfileFragment();
+    public static ListFragment newInstance() {
+        return new ListFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.profile_fragment, container, false);
+        return inflater.inflate(R.layout.list_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(ListViewModel.class);
         // TODO: Use the ViewModel
     }
 

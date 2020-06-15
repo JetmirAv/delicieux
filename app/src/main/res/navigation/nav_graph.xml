@@ -7,22 +7,23 @@
 
     <fragment
         android:id="@+id/explore"
-        android:name="edu.fiek.delicieux.explore.ExploreFragment"
+        android:name="edu.fiek.delicieux.ui.explore.ExploreFragment"
         android:label="explore_fragment"
         tools:layout="@layout/explore_fragment" />
     <fragment
         android:id="@+id/list"
-        android:name="edu.fiek.delicieux.list.ListFragment"
+        android:name="edu.fiek.delicieux.ui.list.ListFragment"
         android:label="list_fragment"
         tools:layout="@layout/list_fragment" />
     <fragment
         android:id="@+id/favourite"
-        android:name="edu.fiek.delicieux.favourite.FavouriteFragment"
+        android:name="edu.fiek.delicieux.ui.favourite.FavouriteFragment"
         android:label="favourit_fragment"
-        tools:layout="@layout/favourite_fragment" />
+        tools:layout="@layout/favourite_fragment" >
+    </fragment>
     <fragment
         android:id="@+id/profile"
-        android:name="edu.fiek.delicieux.profile.ProfileFragment"
+        android:name="edu.fiek.delicieux.ui.profile.ProfileFragment"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" />
 </navigation>

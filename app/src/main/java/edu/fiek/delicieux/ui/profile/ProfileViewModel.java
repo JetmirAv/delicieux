@@ -1,4 +1,4 @@
-package edu.fiek.delicieux.profile;
+package edu.fiek.delicieux.ui.profile;
 
 import androidx.lifecycle.ViewModel;
 

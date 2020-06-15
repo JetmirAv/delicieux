@@ -1,4 +1,4 @@
-package edu.fiek.delicieux.list;
+package edu.fiek.delicieux.ui.favourite;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -14,24 +14,24 @@ import android.view.ViewGroup;
 
 import edu.fiek.delicieux.R;
 
-public class ListFragment extends Fragment {
+public class FavouriteFragment extends Fragment {
 
-    private ListViewModel mViewModel;
+    private FavouriteViewModel mViewModel;
 
-    public static ListFragment newInstance() {
-        return new ListFragment();
+    public static FavouriteFragment newInstance() {
+        return new FavouriteFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.list_fragment, container, false);
+        return inflater.inflate(R.layout.favourite_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(ListViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(FavouriteViewModel.class);
         // TODO: Use the ViewModel
     }
 

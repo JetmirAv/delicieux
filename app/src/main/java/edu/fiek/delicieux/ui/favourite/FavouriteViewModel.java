@@ -1,4 +1,4 @@
-package edu.fiek.delicieux.favourite;
+package edu.fiek.delicieux.ui.favourite;
 
 import androidx.lifecycle.ViewModel;
 

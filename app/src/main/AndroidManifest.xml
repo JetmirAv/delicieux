@@ -32,6 +32,8 @@
             android:name=".AuthActivity"
 
             android:screenOrientation="portrait" />
+
+        <activity android:name=".DetailsActivity" android:screenOrientation="portrait" />
     </application>
 
 </manifest>

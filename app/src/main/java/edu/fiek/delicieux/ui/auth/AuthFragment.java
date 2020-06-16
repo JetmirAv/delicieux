@@ -32,7 +32,6 @@ public class AuthFragment extends Fragment {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("resssss");
                 Navigation.findNavController(v).navigate(R.id.loginFragment);
             }
         });
@@ -40,7 +39,7 @@ public class AuthFragment extends Fragment {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Bravo 222");
+                Navigation.findNavController(v).navigate(R.id.registerFragment);
             }
         });
 

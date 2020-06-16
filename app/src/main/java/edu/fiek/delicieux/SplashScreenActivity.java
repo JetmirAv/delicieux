@@ -2,23 +2,29 @@ package edu.fiek.delicieux;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.WindowManager;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SplashScreenActivity extends AppCompatActivity {
+
+    FirebaseAuth fAuth;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow()
-                .setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
 
+        Class startClass = user != null ? MainActivity.class : AuthActivity.class;
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, startClass);
         startActivity(intent);
         finish();
     }

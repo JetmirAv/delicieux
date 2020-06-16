@@ -1,4 +1,4 @@
-package edu.fiek.delicieux.explore;
+package edu.fiek.delicieux.ui.explore;
 
 import androidx.lifecycle.ViewModel;
 

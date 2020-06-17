@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import edu.fiek.delicieux.DetailsActivity;
 import edu.fiek.delicieux.R;
 import edu.fiek.delicieux.model.CookBook;
 
@@ -47,8 +47,7 @@ public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(context, DetailsActivity.class);
-                context.startActivity(i);
+                Navigation.findNavController(view).navigate(R.id.cookBookDetailFragment);
             }
         });
 

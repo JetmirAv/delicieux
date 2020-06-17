@@ -48,7 +48,6 @@ public class ExploreFragment extends Fragment {
         context = getContext();
 
         recipesRecycler = view.findViewById(R.id.recipes_recycler);
-        context = getContext();
 
         List<CookBook> cookBookList = new ArrayList<>();
 

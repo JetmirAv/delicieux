@@ -40,11 +40,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     @Override
     public void onBindViewHolder( RecipesViewHolder holder, int position) {
 
-        holder.foodImage.setImageResource(recipesFoodList.get(position).getImageUrl());
-        holder.name.setText(recipesFoodList.get(position).getName());
-        holder.price.setText(recipesFoodList.get(position).getPrice());
-        holder.rating.setText(recipesFoodList.get(position).getRating());
-        holder.restorantName.setText(recipesFoodList.get(position).getRestorantname());
+//        holder.foodImage.setImageResource(recipesFoodList.get(position).getImageUrl());
+//        holder.name.setText(recipesFoodList.get(position).getName());
+//        holder.price.setText(recipesFoodList.get(position).getPrice());
+//        holder.rating.setText(recipesFoodList.get(position).getRating());
+//        holder.restorantName.setText(recipesFoodList.get(position).getRestorantname());
 
     }
 
@@ -57,17 +57,17 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     public static final class RecipesViewHolder extends RecyclerView.ViewHolder{
 
 
-        ImageView foodImage;
-        TextView price, name, rating, restorantName;
+//        ImageView foodImage;
+//        TextView price, name, rating, restorantName;
 
         public RecipesViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            foodImage = itemView.findViewById(R.id.food_image);
-            price = itemView.findViewById(R.id.price);
-            name = itemView.findViewById(R.id.name);
-            rating = itemView.findViewById(R.id.rating);
-            restorantName = itemView.findViewById(R.id.restorant_name);
+//            foodImage = itemView.findViewById(R.id.food_image);
+//            price = itemView.findViewById(R.id.price);
+//            name = itemView.findViewById(R.id.name);
+//            rating = itemView.findViewById(R.id.rating);
+//            restorantName = itemView.findViewById(R.id.restorant_name);
 
 
 

@@ -1,4 +1,4 @@
-package edu.fiek.delicieux;
+package edu.fiek.delicieux.ui.auth;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import edu.fiek.delicieux.R;
 
 /**
  * A simple {@link Fragment} subclass.

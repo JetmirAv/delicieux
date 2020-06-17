@@ -9,7 +9,14 @@
         android:id="@+id/explore"
         android:name="edu.fiek.delicieux.ui.explore.ExploreFragment"
         android:label="explore_fragment"
-        tools:layout="@layout/explore_fragment" />
+        tools:layout="@layout/explore_fragment" >
+        <action
+            android:id="@+id/action_explore_to_cookBookDetailFragment"
+            app:destination="@id/cookBookDetailFragment" />
+        <action
+            android:id="@+id/action_explore_to_recipesDetailFragment2"
+            app:destination="@id/recipesDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/list"
         android:name="edu.fiek.delicieux.ui.list.ListFragment"
@@ -20,10 +27,23 @@
         android:name="edu.fiek.delicieux.ui.favourite.FavouriteFragment"
         android:label="favourit_fragment"
         tools:layout="@layout/favourite_fragment" >
+        <action
+            android:id="@+id/action_favourite_to_cookBookDetailFragment"
+            app:destination="@id/cookBookDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="edu.fiek.delicieux.ui.profile.ProfileFragment"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" />
+    <fragment
+        android:id="@+id/cookBookDetailFragment"
+        android:name="edu.fiek.delicieux.ui.cookbook.CookBookDetailFragment"
+        android:label="cook_book_detail_fragment"
+        tools:layout="@layout/cook_book_detail_fragment" />
+    <fragment
+        android:id="@+id/recipesDetailFragment"
+        android:name="edu.fiek.delicieux.ui.recipes.RecipesDetailFragment"
+        android:label="recipes_detail_fragment"
+        tools:layout="@layout/recipes_detail_fragment" />
 </navigation>

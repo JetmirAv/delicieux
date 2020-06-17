@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_explore_to_cookBookDetailFragment"
             app:destination="@id/cookBookDetailFragment" />
+        <action
+            android:id="@+id/action_explore_to_recipesDetailFragment2"
+            app:destination="@id/recipesDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/list"
@@ -38,4 +41,9 @@
         android:name="edu.fiek.delicieux.ui.cookbook.CookBookDetailFragment"
         android:label="cook_book_detail_fragment"
         tools:layout="@layout/cook_book_detail_fragment" />
+    <fragment
+        android:id="@+id/recipesDetailFragment"
+        android:name="edu.fiek.delicieux.ui.recipes.RecipesDetailFragment"
+        android:label="recipes_detail_fragment"
+        tools:layout="@layout/recipes_detail_fragment" />
 </navigation>

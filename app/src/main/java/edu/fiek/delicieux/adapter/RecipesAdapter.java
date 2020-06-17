@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -46,6 +47,14 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 //        holder.rating.setText(recipesFoodList.get(position).getRating());
 //        holder.restorantName.setText(recipesFoodList.get(position).getRestorantname());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.recipesDetailFragment);
+            }
+        });
+
+
     }
 
     @Override
@@ -57,15 +66,16 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     public static final class RecipesViewHolder extends RecyclerView.ViewHolder{
 
 
-//        ImageView foodImage;
-//        TextView price, name, rating, restorantName;
+        ImageView foodImage;
+        TextView price, name;
+//        , rating, restorantName;
 
         public RecipesViewHolder(@NonNull View itemView) {
             super(itemView);
 
-//            foodImage = itemView.findViewById(R.id.food_image);
-//            price = itemView.findViewById(R.id.price);
-//            name = itemView.findViewById(R.id.name);
+            foodImage = itemView.findViewById(R.id.food_image);
+            price = itemView.findViewById(R.id.price);
+            name = itemView.findViewById(R.id.name);
 //            rating = itemView.findViewById(R.id.rating);
 //            restorantName = itemView.findViewById(R.id.restorant_name);
 

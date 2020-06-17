@@ -40,7 +40,6 @@
         android:label="fragment_register" />
     <fragment
         android:id="@+id/forgetPasswordFragment"
-        android:name="edu.fiek.delicieux.ForgetPasswordFragment"
-        android:label="fragment_forget_password"
-        tools:layout="@layout/fragment_forget_password" />
+        android:name="edu.fiek.delicieux.ui.auth.ForgetPasswordFragment"
+        android:label="fragment_forget_password" />
 </navigation>

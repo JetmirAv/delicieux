@@ -21,4 +21,6 @@
     <string name="recipe_button">Shortpreview Video</string>
     <string name="sign_in">Sign In</string>
     <string name="forgot_pw">Forget password?</string>
+    <string name="recipe">Recipe</string>
+    <string name="cookbook">Cookbook</string>
 </resources>

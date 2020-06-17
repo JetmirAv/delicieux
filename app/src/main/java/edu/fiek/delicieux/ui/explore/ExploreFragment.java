@@ -66,6 +66,15 @@ public class ExploreFragment extends Fragment {
         recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
         recipesFoodList.add(new RecipesFood("Chicago Pizza", "$20", R.drawable.asiafood1, "4.5", "Briand Restaurant"));
         recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
+        recipesFoodList.add(new RecipesFood("Straberry Cake", "$25", R.drawable.asiafood2, "4.2", "Friends Restaurant"));
 
         setRecipesRecycler(recipesFoodList);
         return view;

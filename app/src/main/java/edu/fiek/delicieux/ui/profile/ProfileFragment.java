@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -35,6 +36,8 @@ public class ProfileFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
 
         Button btnLogOut = (Button) view.findViewById(R.id.sign_out);
+        Button btnEditProfile = (Button) view.findViewById(R.id.btnEditProfile);
+
 
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,14 @@ public class ProfileFragment extends Fragment {
                 Intent intent = new Intent(getContext(), SplashScreenActivity.class);
                 startActivity(intent);
                 getActivity().finish();
+            }
+        });
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), EditProfileActivity.class);
+                startActivity(intent);
+                getActivity();
             }
         });
 

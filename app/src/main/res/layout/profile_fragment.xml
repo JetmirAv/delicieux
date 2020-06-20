@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.profile.ProfileFragment">
 
     <TextView
@@ -10,10 +11,25 @@
         android:layout_height="match_parent"
         android:text="Profile" />
 
+
     <Button
         android:id="@+id/sign_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign out" />
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/btn_style"
+        android:text="Edit Profile"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
 </FrameLayout>

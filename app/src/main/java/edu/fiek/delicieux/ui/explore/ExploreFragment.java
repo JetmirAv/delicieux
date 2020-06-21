@@ -51,18 +51,15 @@ public class ExploreFragment extends Fragment {
 
         List<CookBook> cookBookList = new ArrayList<>();
 
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-        cookBookList.add(new CookBook("Float Cake Vietnam", R.drawable.appertizers));
-
-
+        cookBookList.add(new CookBook("Float Cake Vietnam", "$7.05", R.drawable.appetizers3));
+        cookBookList.add(new CookBook("Chiken Drumstick", "$17.05", R.drawable.appertizers));
+        cookBookList.add(new CookBook("Fish Tikka Stick", "$25.05", R.drawable.appertizers));
+        cookBookList.add(new CookBook("Float Cake Vietnam", "$7.05", R.drawable.appertizers));
+        cookBookList.add(new CookBook("Chiken Drumstick", "$17.05", R.drawable.appertizers));
+        cookBookList.add(new CookBook("Fish Tikka Stick", "$25.05", R.drawable.appertizers));
+        cookBookList.add(new CookBook("Float Cake Vietnam", "$7.05", R.drawable.appertizers));
+        cookBookList.add(new CookBook("Chiken Drumstick", "$17.05", R.drawable.appertizers));
+        cookBookList.add(new CookBook("Fish Tikka Stick", "$25.05", R.drawable.appertizers));
 
         setCookRecycler(cookBookList);
 

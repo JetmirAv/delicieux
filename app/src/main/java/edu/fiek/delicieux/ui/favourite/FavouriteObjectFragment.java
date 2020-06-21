@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import edu.fiek.delicieux.R;
 
-public class DemoObjectFragment extends Fragment {
+public class FavouriteObjectFragment extends Fragment {
     public static final String ARG_OBJECT = "object";
 
     @Nullable

@@ -22,7 +22,7 @@ import edu.fiek.delicieux.R;
 public class FavouriteFragment extends Fragment {
 
     View view;
-    DemoCollectionAdapter demoCollectionAdapter;
+    FavouriteCollectionAdapter favouriteCollectionAdapter;
     ViewPager2 viewPager;
 
     private FavouriteViewModel mViewModel;
@@ -42,9 +42,9 @@ public class FavouriteFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        demoCollectionAdapter = new DemoCollectionAdapter(this);
+        favouriteCollectionAdapter = new FavouriteCollectionAdapter(this);
         viewPager = view.findViewById(R.id.pager);
-        viewPager.setAdapter(demoCollectionAdapter);
+        viewPager.setAdapter(favouriteCollectionAdapter);
 
         initTab();
 

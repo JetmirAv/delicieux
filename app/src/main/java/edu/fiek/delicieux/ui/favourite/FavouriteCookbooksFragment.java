@@ -31,7 +31,6 @@ public class FavouriteCookbooksFragment extends Fragment {
         view = inflater.inflate(R.layout.favourite_cookbook_fragment, container, false);
 
 
-
         return view;
     }
 
@@ -40,21 +39,19 @@ public class FavouriteCookbooksFragment extends Fragment {
         Bundle args = getArguments();
 
         ArrayList<CookBook> cookBooks = new ArrayList<>();
-        cookBooks.add(new CookBook("Test", "21", 21));
-        cookBooks.add(new CookBook("Test", "21", 21));
-        cookBooks.add(new CookBook("Test", "21", 21));
-        cookBooks.add(new CookBook("Test", "21", 21));
-        cookBooks.add(new CookBook("Test", "21", 21));
-        cookBooks.add(new CookBook("Test", "21", 21));
-        cookBooks.add(new CookBook("Test", "21", 21));
-
+        cookBooks.add(new CookBook("Test", 21));
+        cookBooks.add(new CookBook("Test", 21));
+        cookBooks.add(new CookBook("Test", 21));
+        cookBooks.add(new CookBook("Test", 21));
+        cookBooks.add(new CookBook("Test", 21));
+        cookBooks.add(new CookBook("Test", 21));
+        cookBooks.add(new CookBook("Test", 21));
 
 
         recyclerView = view.findViewById(R.id.favourite_cookbook_recycler_view);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2) );
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         favouriteCookbooksAdapter = new FavouriteCookbooksAdapter(getContext(), cookBooks);
         recyclerView.setAdapter(favouriteCookbooksAdapter);
-
 
 
 //        ((TextView) view.findViewById(R.id.test12))

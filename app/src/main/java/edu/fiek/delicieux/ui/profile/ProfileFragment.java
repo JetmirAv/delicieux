@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,8 +37,16 @@ public class ProfileFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
 
         Button btnLogOut = (Button) view.findViewById(R.id.sign_out);
+        Button btnSettings = (Button) view.findViewById(R.id.settingsID);
         Button btnEditProfile = (Button) view.findViewById(R.id.btnEditProfile);
 
+
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.settingsFragment);
+            }
+        });
 
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,9 +60,7 @@ public class ProfileFragment extends Fragment {
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), EditProfileActivity.class);
-                startActivity(intent);
-                getActivity();
+                Navigation.findNavController(v).navigate(R.id.editProfileFragment);
             }
         });
 

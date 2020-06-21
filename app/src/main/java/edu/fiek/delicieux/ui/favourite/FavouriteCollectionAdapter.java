@@ -7,8 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class DemoCollectionAdapter extends FragmentStateAdapter {
-    public DemoCollectionAdapter(Fragment fragment) {
+public class FavouriteCollectionAdapter extends FragmentStateAdapter {
+    public FavouriteCollectionAdapter(Fragment fragment) {
         super(fragment);
     }
 
@@ -21,10 +21,10 @@ public class DemoCollectionAdapter extends FragmentStateAdapter {
 
         if(position == 0){
             fragment = new FavouriteRecipesFragment();
-            args.putString(DemoObjectFragment.ARG_OBJECT, "Receipt");
+            args.putString(FavouriteObjectFragment.ARG_OBJECT, "Receipt");
         } else {
             fragment = new FavouriteCookbooksFragment();
-            args.putString(DemoObjectFragment.ARG_OBJECT, "Cookbook");
+            args.putString(FavouriteObjectFragment.ARG_OBJECT, "Cookbook");
         }
 
         // Our object is just an integer :-P

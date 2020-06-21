@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_favourite_to_cookBookDetailFragment"
             app:destination="@id/cookBookDetailFragment" />
+        <action
+            android:id="@+id/action_favourite_to_recipesDetailFragment"
+            app:destination="@id/recipesDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/profile"

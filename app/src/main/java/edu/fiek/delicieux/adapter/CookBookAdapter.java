@@ -42,7 +42,6 @@ public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBo
 
         holder.foodImage.setImageResource(cookBookList.get(position).getImageUrl());
         holder.name.setText(cookBookList.get(position).getName());
-        holder.price.setText(cookBookList.get(position).getPrice());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +60,12 @@ public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBo
     public static final class CookBookViewHolder extends RecyclerView.ViewHolder{
 
         ImageView foodImage;
-        TextView price, name;
+        TextView  name;
 
         public CookBookViewHolder(@NonNull View itemView) {
             super(itemView);
 
             foodImage = itemView.findViewById(R.id.food_image);
-            price = itemView.findViewById(R.id.price);
             name = itemView.findViewById(R.id.name);
 
         }

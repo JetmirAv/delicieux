@@ -20,10 +20,10 @@ public class DemoCollectionAdapter extends FragmentStateAdapter {
         Bundle args = new Bundle();
 
         if(position == 0){
-            fragment = new FavouriteReceiptFragment();
+            fragment = new FavouriteRecipesFragment();
             args.putString(DemoObjectFragment.ARG_OBJECT, "Receipt");
         } else {
-            fragment = new FavouriteCookbookFragment();
+            fragment = new FavouriteCookbooksFragment();
             args.putString(DemoObjectFragment.ARG_OBJECT, "Cookbook");
         }
 

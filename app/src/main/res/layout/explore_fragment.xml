@@ -16,7 +16,7 @@
             android:layout_marginTop="9dp"
             android:fontFamily="@font/semibold"
             android:text="Explore"
-            android:textColor="@color/darkgray"
+            android:textColor="@color/faded_text"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -89,7 +89,7 @@
                     android:layout_marginTop="9dp"
                     android:fontFamily="@font/semibold"
                     android:text="CookBooks"
-                    android:textColor="@color/darkgray"
+                    android:textColor="@color/faded_text"
                     android:textSize="24sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -107,7 +107,7 @@
                     android:layout_marginTop="9dp"
                     android:fontFamily="@font/semibold"
                     android:text="Recipes"
-                    android:textColor="@color/darkgray"
+                    android:textColor="@color/faded_text"
                     android:textSize="24sp"
                     android:paddingBottom="10dp"
                     />

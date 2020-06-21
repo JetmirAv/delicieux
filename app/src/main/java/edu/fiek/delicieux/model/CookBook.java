@@ -3,12 +3,12 @@ package edu.fiek.delicieux.model;
 public class CookBook {
 
     String name;
-    String price;
+
     Integer imageUrl;
 
-    public CookBook(String name, String price, Integer imageUrl) {
+    public CookBook(String name, Integer imageUrl) {
         this.name = name;
-        this.price = price;
+
         this.imageUrl = imageUrl;
     }
 
@@ -20,13 +20,8 @@ public class CookBook {
         this.name = name;
     }
 
-    public String getPrice() {
-        return price;
-    }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+
 
     public Integer getImageUrl() {
         return imageUrl;

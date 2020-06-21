@@ -5,8 +5,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
@@ -35,6 +37,16 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     public RecipesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.recipes_food_row_item, parent, false);
+
+        Button showMoreBtn = view.findViewById(R.id.show_more);
+        showMoreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("asfasFASFASASFasfasfasaf");
+                Navigation.findNavController(v).navigate(R.id.recipesDetailFragment);
+            }
+        });
+
         return new RecipesViewHolder(view);
     }
 
@@ -43,16 +55,15 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
 //        holder.foodImage.setImageResource(recipesFoodList.get(position).getImageUrl());
 //        holder.name.setText(recipesFoodList.get(position).getName());
-//        holder.price.setText(recipesFoodList.get(position).getPrice());
 //        holder.rating.setText(recipesFoodList.get(position).getRating());
 //        holder.restorantName.setText(recipesFoodList.get(position).getRestorantname());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.recipesDetailFragment);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Navigation.findNavController(view).navigate(R.id.recipesDetailFragment);
+//            }
+//        });
 
 
     }
@@ -67,14 +78,14 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
 
         ImageView foodImage;
-        TextView price, name;
+        TextView  name;
 //        , rating, restorantName;
 
         public RecipesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             foodImage = itemView.findViewById(R.id.food_image);
-            price = itemView.findViewById(R.id.price);
+
             name = itemView.findViewById(R.id.name);
 //            rating = itemView.findViewById(R.id.rating);
 //            restorantName = itemView.findViewById(R.id.restorant_name);

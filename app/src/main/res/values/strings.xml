@@ -23,4 +23,5 @@
     <string name="forgot_pw">Forget password?</string>
     <string name="recipe">Recipe</string>
     <string name="cookbook">Cookbook</string>
+    <string name="editprofile">Edit Profile</string>
 </resources>

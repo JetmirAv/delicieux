@@ -74,7 +74,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
             super(itemView);
 
             foodImage = itemView.findViewById(R.id.food_image);
-            price = itemView.findViewById(R.id.price);
             name = itemView.findViewById(R.id.name);
 //            rating = itemView.findViewById(R.id.rating);
 //            restorantName = itemView.findViewById(R.id.restorant_name);

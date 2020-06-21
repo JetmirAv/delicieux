@@ -35,7 +35,14 @@
         android:id="@+id/profile"
         android:name="edu.fiek.delicieux.ui.profile.ProfileFragment"
         android:label="profile_fragment"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_profile_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profile_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cookBookDetailFragment"
         android:name="edu.fiek.delicieux.ui.cookbook.CookBookDetailFragment"
@@ -46,4 +53,14 @@
         android:name="edu.fiek.delicieux.ui.recipes.RecipesDetailFragment"
         android:label="recipes_detail_fragment"
         tools:layout="@layout/recipes_detail_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="edu.fiek.delicieux.ui.profile.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="edu.fiek.delicieux.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>

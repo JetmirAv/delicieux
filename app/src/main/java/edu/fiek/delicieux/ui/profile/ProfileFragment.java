@@ -34,17 +34,6 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
         fAuth = FirebaseAuth.getInstance();
 
-        Button btnLogOut = (Button) view.findViewById(R.id.sign_out);
-
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fAuth.signOut();
-                Intent intent = new Intent(getContext(), SplashScreenActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
 
         return view;
     }

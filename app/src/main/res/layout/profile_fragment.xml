@@ -6,11 +6,11 @@
     android:background="@color/white"
     tools:context=".ui.profile.ProfileFragment">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Profile" />
-
 
     <Button
         android:id="@+id/sign_out"

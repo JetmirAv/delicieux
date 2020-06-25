@@ -1,13 +1,22 @@
 package edu.fiek.delicieux.ui.profile;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,17 +36,26 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.HashMap;
 
 import edu.fiek.delicieux.R;
 
+
 public class EditProfileFragment extends Fragment {
+
+
+    private int mDialogType;
+    ImageView btnBack;
     ImageView mImageView;
     StorageReference storageReference;
-    Button mChooseBtn;
+//    Button mChooseBtn;
+    Button mCameraBtn;
     FirebaseAuth fAuth;
     FirebaseDatabase fStore;
     Uri newImageUri;
+    Bitmap newBitmapObj;
     TextView username, email, phoneNumber, button_done;
     View view;
     FirebaseUser user;
@@ -45,7 +63,7 @@ public class EditProfileFragment extends Fragment {
 
 
     private static final int IMAGE_PICK_CODE = 1000;
-    private static final int PERMISSION_CODE = 1001;
+    public static final int CAMERA_REQUEST_CODE = 1001;
 
 
     @Override
@@ -67,10 +85,12 @@ public class EditProfileFragment extends Fragment {
 
         button_done = view.findViewById(R.id.button_done);
         mImageView = view.findViewById(R.id.image_view);
-        mChooseBtn = view.findViewById(R.id.choose_image_btn);
+//        mChooseBtn = view.findViewById(R.id.choose_image_btn);
+        mCameraBtn = view.findViewById(R.id.upload_from_cam);
         username = view.findViewById(R.id.username);
         email = view.findViewById(R.id.email);
         phoneNumber = view.findViewById(R.id.phoneNumber);
+        btnBack = view.findViewById(R.id.back_Id);
 
 
         button_done.setOnClickListener(new View.OnClickListener() {
@@ -80,60 +100,81 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-        mChooseBtn.setOnClickListener(new View.OnClickListener() {
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGalleryIntent, 1000);
+
+                Navigation.findNavController(v).popBackStack();
+            }
+        });
+
+//        mChooseBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                startActivityForResult(openGalleryIntent, 1000);
+//
+//            }
+//        });
+
+        mCameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectImage(getContext());
 
             }
         });
+
 
         return view;
     }
 
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == -1 && requestCode == IMAGE_PICK_CODE) {
-
-            mImageView.setImageURI(data.getData());
-            newImageUri = data.getData();
-//            uploadImageToFirebase(data.getData());
-        }
-    }
-
     private void uploadImageToFirebase(final Uri imageUri) {
         // uplaod image to firebase storage
-
-        System.out.println("user: " + fAuth.getCurrentUser());
-
-//        String extension = imageUri.toString().substring(imageUri.toString().lastIndexOf("."));
-
         final StorageReference fileRef = storageReference.child("avatars/" + fAuth.getCurrentUser().getUid() + ".jpeg");
-        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Picasso.get().load(uri).into(mImageView);
-                        newImageUri = uri;
-                        updateProfileAction();
-                    }
-                });
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(), "Failed.", Toast.LENGTH_SHORT).show();
-            }
-        });
+        UploadTask task = null;
+
+        if (newImageUri != null) {
+            task = fileRef.putFile(newImageUri);
+            fileRef.putFile(imageUri);
+        }
+
+        if (newBitmapObj != null) {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            newBitmapObj.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] data = baos.toByteArray();
+            task = fileRef.putBytes(data);
+        }
+
+        if (task != null) {
+            task.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Picasso.get().load(uri).into(mImageView);
+                            newImageUri = uri;
+                            updateProfileAction();
+                        }
+                    });
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getContext(), "Failed.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            updateProfileAction();
+        }
 
     }
 
     private void updateProfile() {
-        if (newImageUri != null) {
+        if (newImageUri != null || newBitmapObj != null) {
             uploadImageToFirebase(newImageUri);
         } else {
             updateProfileAction();
@@ -173,6 +214,56 @@ public class EditProfileFragment extends Fragment {
         Toast.makeText(getContext(), "bravo", Toast.LENGTH_LONG).show();
 
 
+    }
+
+    private void selectImage(Context context) {
+        final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Choose your profile picture");
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+
+                if (options[item].equals("Take Photo")) {
+                    Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePicture, 0);
+
+                } else if (options[item].equals("Choose from Gallery")) {
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickPhoto, 1);//one can be replaced with any action code
+
+                } else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != 0) {
+            switch (requestCode) {
+                case 0:
+                    if (resultCode == -1 && data != null) {
+                        newBitmapObj = (Bitmap) data.getExtras().get("data");
+                        mImageView.setImageBitmap(newBitmapObj);
+                        newImageUri = null;
+                    }
+
+                    break;
+                case 1:
+                    if (resultCode == -1 && data != null) {
+                        mImageView.setImageURI(data.getData());
+                        newImageUri = data.getData();
+                        newBitmapObj = null;
+                    }
+                    break;
+            }
+        }
     }
 
 

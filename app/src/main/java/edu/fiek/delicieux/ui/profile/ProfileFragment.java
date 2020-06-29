@@ -13,9 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import edu.fiek.delicieux.AuthActivity;
+import edu.fiek.delicieux.MainActivity;
 import edu.fiek.delicieux.R;
 import edu.fiek.delicieux.SplashScreenActivity;
 
@@ -34,17 +37,17 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
         fAuth = FirebaseAuth.getInstance();
 
-        Button btnLogOut = (Button) view.findViewById(R.id.sign_out);
+        ImageView settings = view.findViewById(R.id.settings);
 
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
+        settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fAuth.signOut();
-                Intent intent = new Intent(getContext(), SplashScreenActivity.class);
+                Intent intent = new Intent(getActivity(), AuthActivity.class);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
+
 
         return view;
     }

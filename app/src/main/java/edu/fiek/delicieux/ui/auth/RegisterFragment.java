@@ -37,7 +37,6 @@ public class RegisterFragment extends Fragment {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        System.out.println("Register");
 
         final EditText emailText = (EditText) view.findViewById(R.id.email);
         final EditText passwordText = (EditText) view.findViewById(R.id.password);
@@ -50,12 +49,10 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                System.out.println("Knej 1");
                 if (emailText.getText().toString().isEmpty() || passwordText.getText().toString().isEmpty() || mobileText.getText().toString().isEmpty() || usernameText.getText().toString().isEmpty()) {
                     Toast.makeText(getContext(), "All fields are required!", Toast.LENGTH_LONG).show();
                     return;
                 }
-                System.out.println("Knej 2");
 
                 firebaseAuth.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -64,7 +61,6 @@ public class RegisterFragment extends Fragment {
                             Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             return;
                         }
-                        System.out.println("Knej 3");
 
                         final FirebaseUser user = firebaseAuth.getCurrentUser();
                         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
@@ -81,8 +77,6 @@ public class RegisterFragment extends Fragment {
                                     user.delete();
                                     return;
                                 }
-                                System.out.println("Knej 4");
-
                                 Intent intent = new Intent(getActivity(), MainActivity.class);
                                 startActivity(intent);
                             }

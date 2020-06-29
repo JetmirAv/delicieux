@@ -38,7 +38,14 @@
         android:id="@+id/profile"
         android:name="edu.fiek.delicieux.ui.profile.ProfileFragment"
         android:label="profile_fragment"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_profile_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profile_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cookBookDetailFragment"
         android:name="edu.fiek.delicieux.ui.cookbook.CookBookDetailFragment"
@@ -49,4 +56,31 @@
         android:name="edu.fiek.delicieux.ui.recipes.RecipesDetailFragment"
         android:label="recipes_detail_fragment"
         tools:layout="@layout/recipes_detail_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="edu.fiek.delicieux.ui.profile.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_changePswFragment"
+            app:destination="@id/changePswFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_changeLanguageFragment"
+            app:destination="@id/changeLanguageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="edu.fiek.delicieux.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/changePswFragment"
+        android:name="edu.fiek.delicieux.ui.profile.ChangePswFragment"
+        android:label="fragment_change_psw"
+        tools:layout="@layout/fragment_change_psw" />
+    <fragment
+        android:id="@+id/changeLanguageFragment"
+        android:name="edu.fiek.delicieux.ui.profile.ChangeLanguageFragment"
+        android:label="fragment_change_language"
+        tools:layout="@layout/fragment_change_language" />
 </navigation>

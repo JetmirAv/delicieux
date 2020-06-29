@@ -39,30 +39,19 @@ public class ProfileFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
 
         ImageView settings = view.findViewById(R.id.settings);
-        Button btnLogOut = (Button) view.findViewById(R.id.sign_out);
-        Button btnSettings = (Button) view.findViewById(R.id.settingsID);
-        Button btnEditProfile = (Button) view.findViewById(R.id.btnEditProfile);
+        Button editProfileBtn = view.findViewById(R.id.edit_profile_btn);
 
-
-        btnSettings.setOnClickListener(new View.OnClickListener() {
+        editProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.settingsFragment);
+                Navigation.findNavController(v).navigate(R.id.editProfileFragment);
             }
         });
 
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fAuth.signOut();
-                Intent intent = new Intent(getActivity(), AuthActivity.class);
-                startActivity(intent);
-            }
-        });
-        btnEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.editProfileFragment);
+                Navigation.findNavController(v).navigate(R.id.settingsFragment);
             }
         });
 

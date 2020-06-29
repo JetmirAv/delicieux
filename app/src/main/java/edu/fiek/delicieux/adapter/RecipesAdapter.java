@@ -42,7 +42,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
         showMoreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("asfasFASFASASFasfasfasaf");
                 Navigation.findNavController(v).navigate(R.id.recipesDetailFragment);
             }
         });

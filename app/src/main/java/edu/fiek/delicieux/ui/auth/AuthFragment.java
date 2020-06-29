@@ -20,8 +20,6 @@ public class AuthFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
 
-        System.out.println("Testing this mf");
-
         final View flater = inflater.inflate(R.layout.fragment_auth, container, false);
 
         final Context context = getContext();

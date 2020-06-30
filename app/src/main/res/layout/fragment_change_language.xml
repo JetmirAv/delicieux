@@ -1,21 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical">
+    tools:context=".ui.profile.SettingsFragment">
+
+    <FrameLayout
+        android:id="@+id/backContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/gridLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
+    </FrameLayout>
+
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:columnCount="1"
+        android:rowCount="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backContainer">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ASASFASFASFAS"
-        android:textColor="@color/faded_text" />
-
-    <ListView
-        android:id="@+id/android:list"
+        android:id="@+id/albId"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:drawSelectorOnTop="false" />
+        android:background="@drawable/settings_items"
+        android:text="Albanian"
+        android:textColor="@color/text"
+        android:textSize="25sp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/engId"
+        android:layout_width="match_parent"
+        android:background="@drawable/settings_items"
+        android:text="English"
+        android:textColor="@color/text"
+        android:textSize="25sp"
+        />
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

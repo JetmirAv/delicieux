@@ -1,33 +1,64 @@
-package edu.fiek.delicieux.model;
+package edu.fiek.delicieux.models;
+
+import java.util.List;
 
 public class CookBook {
 
-    String name;
+    String title;
+    String description;
+    String media;
+    List<String> recipes;
+    String restaurantId;
 
-    Integer imageUrl;
 
-    public CookBook(String name, Integer imageUrl) {
-        this.name = name;
-
-        this.imageUrl = imageUrl;
+    public CookBook(String title, String description, String media, List<String> recipes, String restaurantId) {
+        this.title = title;
+        this.description = description;
+        this.media = media;
+        this.recipes = recipes;
+        this.restaurantId = restaurantId;
     }
 
-    public String getName() {
-        return name;
+    public CookBook() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getTitle() {
+        return title;
     }
 
-
-
-
-    public Integer getImageUrl() {
-        return imageUrl;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setImageUrl(Integer imageUrl) {
-        this.imageUrl = imageUrl;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMedia() {
+        return media;
+    }
+
+    public void setMedia(String media) {
+        this.media = media;
+    }
+
+    public List<String> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(List<String> recipes) {
+        this.recipes = recipes;
+    }
+
+    public String getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(String restaurantId) {
+        this.restaurantId = restaurantId;
     }
 }

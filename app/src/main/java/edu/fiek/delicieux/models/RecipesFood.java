@@ -1,59 +1,53 @@
-package edu.fiek.delicieux.model;
+package edu.fiek.delicieux.models;
 
-public class RecipesFood  {
+import java.util.List;
 
-    String name;
-    String price;
-    Integer imageUrl;
+public class RecipesFood {
 
-    public RecipesFood(String name, String price, Integer imageUrl, String rating, String restorantname) {
-        this.name = name;
-        this.price = price;
-        this.imageUrl = imageUrl;
-        this.rating = rating;
-        this.restorantname = restorantname;
+    String title;
+    String description;
+    String media;
+    List<Ingredients> ingredients;
+
+    public RecipesFood(String title, String description, String media, List<Ingredients> ingredients) {
+        this.title = title;
+        this.description = description;
+        this.media = media;
+        this.ingredients = ingredients;
     }
 
-    String rating;
-    String restorantname;
-
-    public String getRating() {
-        return rating;
+    public RecipesFood() {
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public String getTitle() {
+        return title;
     }
 
-    public String getRestorantname() {
-        return restorantname;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setRestorantname(String restorantname) {
-        this.restorantname = restorantname;
+    public String getDescription() {
+        return description;
     }
 
-    public String getName() {
-        return name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getMedia() {
+        return media;
     }
 
-    public String getPrice() {
-        return price;
+    public void setMedia(String media) {
+        this.media = media;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public List<Ingredients> getIngredients() {
+        return ingredients;
     }
 
-    public Integer getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(Integer imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setIngredients(List<Ingredients> ingredients) {
+        this.ingredients = ingredients;
     }
 }

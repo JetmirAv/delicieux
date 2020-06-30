@@ -14,18 +14,17 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import edu.fiek.delicieux.R;
-import edu.fiek.delicieux.model.RecipesFood;
+import edu.fiek.delicieux.models.RecipesFood;
 
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder> {
-
     Context context;
     List<RecipesFood> recipesFoodList;
-
-
 
     public RecipesAdapter(Context context, List<RecipesFood> recipesFoodList) {
         this.context = context;
@@ -50,21 +49,9 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     }
 
     @Override
-    public void onBindViewHolder( RecipesViewHolder holder, int position) {
-
-//        holder.foodImage.setImageResource(recipesFoodList.get(position).getImageUrl());
-//        holder.name.setText(recipesFoodList.get(position).getName());
-//        holder.rating.setText(recipesFoodList.get(position).getRating());
-//        holder.restorantName.setText(recipesFoodList.get(position).getRestorantname());
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.recipesDetailFragment);
-//            }
-//        });
-
-
+    public void onBindViewHolder(RecipesViewHolder holder, int position) {
+        holder.name.setText(recipesFoodList.get(position).getTitle());
+        Glide.with(holder.foodImage.getContext()).load(recipesFoodList.get(position).getMedia()).into(holder.foodImage);
     }
 
     @Override
@@ -73,24 +60,13 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     }
 
 
-    public static final class RecipesViewHolder extends RecyclerView.ViewHolder{
-
-
+    public static final class RecipesViewHolder extends RecyclerView.ViewHolder {
         ImageView foodImage;
-        TextView  name;
-//        , rating, restorantName;
-
+        TextView name;
         public RecipesViewHolder(@NonNull View itemView) {
             super(itemView);
-
             foodImage = itemView.findViewById(R.id.food_image);
             name = itemView.findViewById(R.id.name);
-//            rating = itemView.findViewById(R.id.rating);
-//            restorantName = itemView.findViewById(R.id.restorant_name);
-
-
-
         }
     }
-
 }

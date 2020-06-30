@@ -1,16 +1,16 @@
 package edu.fiek.delicieux.models;
 
-public class ShopListItem {
+public class Ingredients {
 
     String name;
     String quantity;
-    boolean bought;
 
-    public ShopListItem(String name, String quantity, boolean bought) {
+    public Ingredients(String name, String quantity) {
         this.name = name;
         this.quantity = quantity;
-        this.bought = bought;
     }
+
+    public Ingredients(){}
 
     public String getName() {
         return name;
@@ -26,13 +26,5 @@ public class ShopListItem {
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
-    }
-
-    public boolean isBought() {
-        return bought;
-    }
-
-    public void setBought(boolean bought) {
-        this.bought = bought;
     }
 }

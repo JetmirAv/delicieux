@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import edu.fiek.delicieux.R;
-import edu.fiek.delicieux.model.CookBook;
+import edu.fiek.delicieux.models.CookBook;
 
 public class FavouriteCookbooksAdapter extends RecyclerView.Adapter<FavouriteCookbooksAdapter.ViewHolder> {
 

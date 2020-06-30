@@ -16,8 +16,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import edu.fiek.delicieux.R;
-import edu.fiek.delicieux.model.CookBook;
-import edu.fiek.delicieux.model.ShopListItem;
+import edu.fiek.delicieux.models.CookBook;
+import edu.fiek.delicieux.models.ShopListItem;
 
 public class ListFragment extends Fragment {
 

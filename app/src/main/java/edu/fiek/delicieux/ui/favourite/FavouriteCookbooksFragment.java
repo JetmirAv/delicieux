@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import edu.fiek.delicieux.R;
-import edu.fiek.delicieux.model.CookBook;
+import edu.fiek.delicieux.models.CookBook;
 
 public class FavouriteCookbooksFragment extends Fragment {
     public static final String ARG_OBJECT = "object";
@@ -39,13 +39,13 @@ public class FavouriteCookbooksFragment extends Fragment {
         Bundle args = getArguments();
 
         ArrayList<CookBook> cookBooks = new ArrayList<>();
-        cookBooks.add(new CookBook("Test", 21));
-        cookBooks.add(new CookBook("Test", 21));
-        cookBooks.add(new CookBook("Test", 21));
-        cookBooks.add(new CookBook("Test", 21));
-        cookBooks.add(new CookBook("Test", 21));
-        cookBooks.add(new CookBook("Test", 21));
-        cookBooks.add(new CookBook("Test", 21));
+//        cookBooks.add(new CookBook("Test", 21));
+//        cookBooks.add(new CookBook("Test", 21));
+//        cookBooks.add(new CookBook("Test", 21));
+//        cookBooks.add(new CookBook("Test", 21));
+//        cookBooks.add(new CookBook("Test", 21));
+//        cookBooks.add(new CookBook("Test", 21));
+//        cookBooks.add(new CookBook("Test", 21));
 
 
         recyclerView = view.findViewById(R.id.favourite_cookbook_recycler_view);

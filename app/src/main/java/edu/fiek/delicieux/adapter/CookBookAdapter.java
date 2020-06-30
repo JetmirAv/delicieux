@@ -18,17 +18,19 @@ import java.util.List;
 
 import edu.fiek.delicieux.R;
 import edu.fiek.delicieux.models.CookBook;
+import edu.fiek.delicieux.ui.cookbook.CookBookDetailViewModel;
 
 
 public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBookViewHolder> {
 
     Context context;
     List<CookBook> cookBookList;
+    CookBookDetailViewModel detailViewModel;
 
-
-    public CookBookAdapter(Context context, List<CookBook> cookBookList) {
+    public CookBookAdapter(Context context, List<CookBook> cookBookList, CookBookDetailViewModel detailViewModel) {
         this.context = context;
         this.cookBookList = cookBookList;
+        this.detailViewModel = detailViewModel;
     }
 
     @NonNull
@@ -40,7 +42,7 @@ public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CookBookViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CookBookViewHolder holder, final int position) {
 
         Glide.with(holder.foodImage.getContext()).load(cookBookList.get(position).getMedia()).into(holder.foodImage);
         holder.name.setText(cookBookList.get(position).getTitle());
@@ -48,6 +50,7 @@ public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                detailViewModel.setSelected(cookBookList.get(position));
                 Navigation.findNavController(view).navigate(R.id.cookBookDetailFragment);
             }
         });

@@ -1,5 +1,7 @@
 package edu.fiek.delicieux.ui.recipes;
 
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -14,11 +16,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import edu.fiek.delicieux.R;
+import edu.fiek.delicieux.models.RecipesFood;
 
 public class RecipesDetailFragment extends Fragment {
+
+    ImageView recipesImage;
+    TextView recipesTitle;
+    TextView recipesDescription;
 
     private RecipesDetailViewModel mViewModel;
 
@@ -29,23 +39,16 @@ public class RecipesDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.recipes_detail_fragment, container, false);
+        View view = inflater.inflate(R.layout.recipes_detail_fragment, container, false);
+        recipesImage = view.findViewById(R.id.recipesImage);
+        recipesTitle = view.findViewById(R.id.recipesTitle);
+        recipesDescription = view.findViewById(R.id.recipesDescription);
 
-//        Button showMoreBtn = view.findViewById(R.id.show_more);
-////        showMoreBtn.setOnClickListener(new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-////                Toast.makeText(getContext(), "TEstingggg", Toast.LENGTH_LONG).show();
-////                System.out.println("asfasFASFASASFasfasfasaf");
-////                Navigation.findNavController(v).navigate(R.id.recipesDetailFragment);
-////            }
-////        });
         ImageView backSign = view.findViewById(R.id.back_Id);
 
         backSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Navigation.findNavController(v).navigateUp();
             }
         });
@@ -56,8 +59,17 @@ public class RecipesDetailFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(RecipesDetailViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(RecipesDetailViewModel.class);
+
         // TODO: Use the ViewModel
+        mViewModel.getSelected().observe(getViewLifecycleOwner(), new Observer<RecipesFood>() {
+            @Override
+            public void onChanged(RecipesFood recipesFood) {
+                recipesTitle.setText(recipesFood.getTitle());
+                recipesDescription.setText(recipesFood.getDescription());
+                Glide.with(getContext()).load(recipesFood.getMedia()).into(recipesImage);
+            }
+        });
     }
 
 }

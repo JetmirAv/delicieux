@@ -1,4 +1,4 @@
-package edu.fiek.delicieux.model;
+package edu.fiek.delicieux.models;
 
 public class ShopListItem {
 

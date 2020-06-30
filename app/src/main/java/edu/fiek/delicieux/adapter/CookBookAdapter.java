@@ -12,10 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import edu.fiek.delicieux.R;
-import edu.fiek.delicieux.model.CookBook;
+import edu.fiek.delicieux.models.CookBook;
 
 
 public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBookViewHolder> {
@@ -40,8 +42,8 @@ public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBo
     @Override
     public void onBindViewHolder(@NonNull CookBookViewHolder holder, int position) {
 
-        holder.foodImage.setImageResource(cookBookList.get(position).getImageUrl());
-        holder.name.setText(cookBookList.get(position).getName());
+        Glide.with(holder.foodImage.getContext()).load(cookBookList.get(position).getMedia()).into(holder.foodImage);
+        holder.name.setText(cookBookList.get(position).getTitle());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,10 +59,10 @@ public class CookBookAdapter extends RecyclerView.Adapter<CookBookAdapter.CookBo
         return cookBookList.size();
     }
 
-    public static final class CookBookViewHolder extends RecyclerView.ViewHolder{
+    public static final class CookBookViewHolder extends RecyclerView.ViewHolder {
 
         ImageView foodImage;
-        TextView  name;
+        TextView name;
 
         public CookBookViewHolder(@NonNull View itemView) {
             super(itemView);

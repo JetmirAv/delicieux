@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import edu.fiek.delicieux.R;
-import edu.fiek.delicieux.model.RecipesFood;
+import edu.fiek.delicieux.models.RecipesFood;
 
 public class FavouriteRecipesFragment extends Fragment {
 
@@ -37,13 +37,13 @@ public class FavouriteRecipesFragment extends Fragment {
         Bundle args = getArguments();
 
         ArrayList<RecipesFood> recipesFoods = new ArrayList<>();
-        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
-        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
-        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
-        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
-        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
-        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
-        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
+//        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
+//        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
+//        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
+//        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
+//        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
+//        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
+//        recipesFoods.add(new RecipesFood("Test", "21", 21, "asf", "ASFasf"));
 
 
         recyclerView = view.findViewById(R.id.favourite_recipe_recycler_view);

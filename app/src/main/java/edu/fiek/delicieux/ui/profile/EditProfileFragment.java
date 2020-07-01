@@ -12,7 +12,10 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
@@ -25,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,11 +45,13 @@ import java.io.File;
 import java.util.HashMap;
 
 import edu.fiek.delicieux.R;
+import edu.fiek.delicieux.models.User;
 
 
 public class EditProfileFragment extends Fragment {
 
 
+    ProfileViewModel  mViewModel;
     private int mDialogType;
     ImageView btnBack;
     ImageView mImageView;
@@ -109,15 +115,6 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-//        mChooseBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                startActivityForResult(openGalleryIntent, 1000);
-//
-//            }
-//        });
-
         mCameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +122,6 @@ public class EditProfileFragment extends Fragment {
 
             }
         });
-
 
         return view;
     }
@@ -250,6 +246,7 @@ public class EditProfileFragment extends Fragment {
                 case 0:
                     if (resultCode == -1 && data != null) {
                         newBitmapObj = (Bitmap) data.getExtras().get("data");
+                        Glide.with(getContext()).load(newBitmapObj).into(mImageView);
                         mImageView.setImageBitmap(newBitmapObj);
                         newImageUri = null;
                     }
@@ -257,6 +254,7 @@ public class EditProfileFragment extends Fragment {
                     break;
                 case 1:
                     if (resultCode == -1 && data != null) {
+//                        Glide.with(getContext()).load(user.getAvatar()).into(mImageView);
                         mImageView.setImageURI(data.getData());
                         newImageUri = data.getData();
                         newBitmapObj = null;
@@ -266,5 +264,31 @@ public class EditProfileFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mViewModel = new ViewModelProvider(requireActivity()).get(ProfileViewModel.class);
 
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mViewModel.getCurrentUser().observe(this, new Observer<User>() {
+            @Override
+            public void onChanged(User user) {
+
+                System.out.println("ASFASF: " + user.getUsername());
+                System.out.println("ASFASF: " + user.getMobile());
+
+                email.setText(user.getEmail());
+                username.setText(user.getUsername());
+                Glide.with(getContext()).load(user.getAvatar()).into(mImageView);
+                phoneNumber.setText(user.getMobile());
+
+            }
+        });
+    }
 }

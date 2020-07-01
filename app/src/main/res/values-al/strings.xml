@@ -25,4 +25,7 @@
     <string name="recipe">Recetat</string>
     <string name="cookbook">Librat e Gatimit</string>
     <string name="editprofile">Modifiko Profilin</string>
+    <string name="add_to_cart">Shto ne shporte</string>
+    <string name="remove">Fshije</string>
+
 </resources>

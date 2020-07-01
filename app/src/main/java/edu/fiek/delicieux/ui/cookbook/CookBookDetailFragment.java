@@ -47,6 +47,7 @@ public class CookBookDetailFragment extends Fragment {
 
 
 
+
         backSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +69,7 @@ public class CookBookDetailFragment extends Fragment {
             public void onChanged(CookBook cookBook) {
                 title.setText(cookBook.getTitle());
                 description.setText(cookBook.getDescription());
+
 
                 Glide.with(getContext()).load(cookBook.getMedia()).into(media);
             }

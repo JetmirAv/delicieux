@@ -24,4 +24,6 @@
     <string name="recipe">Recipe</string>
     <string name="cookbook">Cookbook</string>
     <string name="editprofile">Edit Profile</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="remove">Remove</string>
 </resources>

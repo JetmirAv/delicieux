@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,8 +15,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import edu.fiek.delicieux.R;
-import edu.fiek.delicieux.models.CookBook;
-import edu.fiek.delicieux.models.ShopListItem;
+import edu.fiek.delicieux.adapter.ListItemsAdapter;
+import edu.fiek.delicieux.models.Ingredients;
 
 public class ListFragment extends Fragment {
 
@@ -42,40 +41,42 @@ public class ListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Bundle args = getArguments();
 
-        ArrayList<ShopListItem> items = new ArrayList<>();
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
-        items.add(new ShopListItem("Test", "21", false));
+        ArrayList<Ingredients> items = new ArrayList<>();
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
+        items.add(new Ingredients("Test", "21"));
 
 
         recyclerView = view.findViewById(R.id.shop_list_rec_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        listItemsAdapter = new ListItemsAdapter(getContext(), items);
+//        listItemsAdapter = new ListItemsAdapter(getContext(), items);
+        listItemsAdapter = new ListItemsAdapter(getContext(), items, getContext().getString(R.string.remove));
+
         recyclerView.setAdapter(listItemsAdapter);
 
 

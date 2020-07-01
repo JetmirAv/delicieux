@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import edu.fiek.delicieux.R;
+import edu.fiek.delicieux.adapter.ListItemsAdapter;
 import edu.fiek.delicieux.models.RecipesFood;
 
 public class RecipesDetailFragment extends Fragment {
@@ -29,6 +32,7 @@ public class RecipesDetailFragment extends Fragment {
     ImageView recipesImage;
     TextView recipesTitle;
     TextView recipesDescription;
+    RecyclerView ing_rec_view;
 
     private RecipesDetailViewModel mViewModel;
 
@@ -43,7 +47,8 @@ public class RecipesDetailFragment extends Fragment {
         recipesImage = view.findViewById(R.id.recipesImage);
         recipesTitle = view.findViewById(R.id.recipesTitle);
         recipesDescription = view.findViewById(R.id.recipesDescription);
-
+        ing_rec_view = view.findViewById(R.id.ing_rec_view);
+        ing_rec_view.setLayoutManager(new LinearLayoutManager(getContext()));
         ImageView backSign = view.findViewById(R.id.back_Id);
 
         backSign.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +73,9 @@ public class RecipesDetailFragment extends Fragment {
                 recipesTitle.setText(recipesFood.getTitle());
                 recipesDescription.setText(recipesFood.getDescription());
                 Glide.with(getContext()).load(recipesFood.getMedia()).into(recipesImage);
+
+                ing_rec_view.setAdapter(new ListItemsAdapter(getContext(), recipesFood.getIngridients(), getContext().getString(R.string.add_to_cart)));
+
             }
         });
     }

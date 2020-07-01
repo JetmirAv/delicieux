@@ -7,13 +7,13 @@ public class RecipesFood {
     String title;
     String description;
     String media;
-    List<Ingredients> ingredients;
+    List<Ingredients> ingridients;
 
-    public RecipesFood(String title, String description, String media, List<Ingredients> ingredients) {
+    public RecipesFood(String title, String description, String media, List<Ingredients> ingridients) {
         this.title = title;
         this.description = description;
         this.media = media;
-        this.ingredients = ingredients;
+        this.ingridients = ingridients;
     }
 
     public RecipesFood() {
@@ -43,11 +43,11 @@ public class RecipesFood {
         this.media = media;
     }
 
-    public List<Ingredients> getIngredients() {
-        return ingredients;
+    public List<Ingredients> getIngridients() {
+        return ingridients;
     }
 
-    public void setIngredients(List<Ingredients> ingredients) {
-        this.ingredients = ingredients;
+    public void setIngridients(List<Ingredients> ingridients) {
+        this.ingridients = ingridients;
     }
 }

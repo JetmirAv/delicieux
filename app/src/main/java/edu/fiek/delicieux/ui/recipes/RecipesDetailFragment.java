@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,14 +26,18 @@ import com.bumptech.glide.Glide;
 
 import edu.fiek.delicieux.R;
 import edu.fiek.delicieux.adapter.ListItemsAdapter;
+import edu.fiek.delicieux.models.Ingredients;
 import edu.fiek.delicieux.models.RecipesFood;
+import edu.fiek.delicieux.repositories.IngredientRepository;
 
 public class RecipesDetailFragment extends Fragment {
 
+    static IngredientRepository repository;
     ImageView recipesImage;
     TextView recipesTitle;
     TextView recipesDescription;
-    RecyclerView ing_rec_view;
+    static Context context;
+    static RecyclerView ing_rec_view;
 
     private RecipesDetailViewModel mViewModel;
 
@@ -44,6 +49,10 @@ public class RecipesDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recipes_detail_fragment, container, false);
+
+        repository = new IngredientRepository(getContext());
+        context = getContext();
+
         recipesImage = view.findViewById(R.id.recipesImage);
         recipesTitle = view.findViewById(R.id.recipesTitle);
         recipesDescription = view.findViewById(R.id.recipesDescription);
@@ -74,10 +83,26 @@ public class RecipesDetailFragment extends Fragment {
                 recipesDescription.setText(recipesFood.getDescription());
                 Glide.with(getContext()).load(recipesFood.getMedia()).into(recipesImage);
 
-                ing_rec_view.setAdapter(new ListItemsAdapter(getContext(), recipesFood.getIngridients(), getContext().getString(R.string.add_to_cart)));
+                ing_rec_view.setAdapter(new ListItemsAdapter(getContext(), recipesFood.getIngridients(), R.string.add_to_cart));
 
             }
         });
+    }
+
+    public static class CustomOnClickListener implements View.OnClickListener {
+        Ingredients ingredient;
+
+        public void setIngredient(Ingredients ingredient) {
+            this.ingredient = ingredient;
+        }
+
+        @Override
+        public void onClick(View v) {
+            System.out.println("Text: insert");
+            repository.insertIngredient(ingredient);
+
+            Toast.makeText(context, "Ingridient added to cart successfully", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

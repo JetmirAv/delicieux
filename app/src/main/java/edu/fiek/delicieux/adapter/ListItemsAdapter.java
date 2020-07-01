@@ -16,18 +16,21 @@ import java.util.List;
 
 import edu.fiek.delicieux.R;
 import edu.fiek.delicieux.models.Ingredients;
+import edu.fiek.delicieux.repositories.IngredientRepository;
+import edu.fiek.delicieux.ui.list.ListFragment;
+import edu.fiek.delicieux.ui.recipes.RecipesDetailFragment;
 
 public class ListItemsAdapter extends RecyclerView.Adapter<ListItemsAdapter.ItemViewHolder> {
 
+    private View.OnClickListener listener;
     private List<Ingredients> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
-    String btnName;
-
+    int btnName;
 
 
     // data is passed into the constructor
-    public ListItemsAdapter(Context context, List<Ingredients> data, String btnName) {
+    public ListItemsAdapter(Context context, List<Ingredients> data, int btnName) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.btnName = btnName;
@@ -45,10 +48,22 @@ public class ListItemsAdapter extends RecyclerView.Adapter<ListItemsAdapter.Item
 
     // binds the data to the TextView in each cell
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, final int position) {
         holder.item_name.setText(mData.get(position).getName());
         holder.item_qty.setText(mData.get(position).getQuantity());
-        holder.button.setText(btnName);
+        holder.button.setText(holder.button.getContext().getString(btnName));
+
+        if (btnName == R.string.remove) {
+            listener = new ListFragment.CustomOnClickListener();
+            ((ListFragment.CustomOnClickListener) listener).setIngredient(mData.get(position));
+        }
+
+        if (btnName == R.string.add_to_cart) {
+            listener = new RecipesDetailFragment.CustomOnClickListener();
+            ((RecipesDetailFragment.CustomOnClickListener) listener).setIngredient(mData.get(position));
+        }
+
+        holder.button.setOnClickListener(listener);
     }
 
     // total number of cells

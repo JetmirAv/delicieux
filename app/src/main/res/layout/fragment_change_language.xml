@@ -42,7 +42,7 @@
         android:id="@+id/albId"
         android:layout_width="match_parent"
         android:background="@drawable/settings_items"
-        android:text="Albanian"
+        android:text="@string/albanian"
         android:textColor="@color/text"
         android:textSize="25sp" />
 
@@ -50,7 +50,7 @@
         android:id="@+id/engId"
         android:layout_width="match_parent"
         android:background="@drawable/settings_items"
-        android:text="English"
+        android:text="@string/english"
         android:textColor="@color/text"
         android:textSize="25sp"
         />

@@ -50,7 +50,11 @@
         android:id="@+id/cookBookDetailFragment"
         android:name="edu.fiek.delicieux.ui.cookbook.CookBookDetailFragment"
         android:label="cook_book_detail_fragment"
-        tools:layout="@layout/cook_book_detail_fragment" />
+        tools:layout="@layout/cook_book_detail_fragment" >
+        <action
+            android:id="@+id/action_cookBookDetailFragment_to_recipesDetailFragment"
+            app:destination="@id/recipesDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recipesDetailFragment"
         android:name="edu.fiek.delicieux.ui.recipes.RecipesDetailFragment"

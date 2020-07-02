@@ -24,41 +24,6 @@
 
 
 
-<!--        <EditText-->
-<!--            android:id="@+id/editText"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginTop="9dp"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            android:background="@drawable/search_bg"-->
-<!--            android:drawableLeft="@drawable/ic_search_black_24dp"-->
-<!--            android:drawablePadding="8dp"-->
-<!--            android:ems="10"-->
-<!--            android:hint="@android:string/search_go"-->
-<!--            android:inputType="textPersonName"-->
-<!--            android:paddingStart="16dp"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textColorHint="@color/gray"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/imageView3"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/textView"-->
-<!--            android:layout_marginLeft="16dp"-->
-<!--            android:layout_marginRight="8dp"-->
-<!--            android:paddingLeft="16dp"-->
-<!--            android:drawableStart="@drawable/ic_search_black_24dp" />-->
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView3"-->
-<!--            android:layout_width="24dp"-->
-<!--            android:layout_height="24dp"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/editText"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/editText"-->
-<!--            app:srcCompat="@drawable/ic_short"-->
-<!--            android:layout_marginRight="16dp" />-->
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
@@ -88,7 +53,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="9dp"
                     android:fontFamily="@font/semibold"
-                    android:text="CookBooks"
+                    android:text="@string/cookbook"
                     android:textColor="@color/faded_text"
                     android:textSize="24sp" />
 
@@ -106,7 +71,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="9dp"
                     android:fontFamily="@font/semibold"
-                    android:text="Recipes"
+                    android:text="@string/recipe"
                     android:textColor="@color/faded_text"
                     android:textSize="24sp"
                     android:paddingBottom="10dp"

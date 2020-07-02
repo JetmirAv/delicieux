@@ -93,7 +93,7 @@ public class ProfileFragment extends Fragment {
                 email.setText(user.getEmail());
                 username.setText(user.getUsername());
                 mobile.setText(user.getMobile());
-                Glide.with(getContext()).load(user.getAvatar()).into(avatar);
+                Glide.with(getContext()).load(user.getAvatar()).skipMemoryCache(true).into(avatar);
 
             }
         });

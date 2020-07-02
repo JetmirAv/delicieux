@@ -7,6 +7,7 @@
     <string name="favourite_icon">Te preferuarat</string>
     <string name="profile_icon">Profili</string>
     <string name="login">Hyrja</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Emaili</string>
     <string name="prompt_password">Passwordi</string>
@@ -16,16 +17,29 @@
     <string name="invalid_username">Emri nuk eshte valid!</string>
     <string name="invalid_password">Passwordi duhet te jete  >5 karaktere</string>
     <string name="login_failed">Hyrja deshtoi"</string>
+    <string name="login_btn">Kyquni</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="create_account">Krijo llogari</string>
     <string name="recipe_button">Shortpreview Video</string>
     <string name="sign_in">Hyni</string>
+    <string name="sign_up_btn">Regjistrohu</string>
     <string name="forgot_pw">Keni harruar passwordin?</string>
     <string name="recipe">Recetat</string>
     <string name="cookbook">Librat e Gatimit</string>
     <string name="editprofile">Modifiko Profilin</string>
     <string name="add_to_cart">Shto ne shporte</string>
     <string name="remove">Fshije</string>
+    <string name="albanian">Shqip</string>
+    <string name="english">Anglisht</string>
+    <string name="changepsw">Ndrysho Paswordin</string>
+    <string name="language">Gjuha</string>
+    <string name="log_out">Dalja</string>
+    <string name="done">OK</string>
+    <string name="edit_profile">Modifiko Profilin</string>
+    <string name="upload_image">Shto foto</string>
+    <string name="username">Emri</string>
+    <string name="email">Email Adresa</string>
+    <string name="phone_number">Numri i Telefonit</string>
 
 </resources>

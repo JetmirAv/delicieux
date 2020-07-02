@@ -42,6 +42,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 import edu.fiek.delicieux.R;
@@ -51,17 +52,17 @@ import edu.fiek.delicieux.models.User;
 public class EditProfileFragment extends Fragment {
 
 
-    ProfileViewModel  mViewModel;
+    ProfileViewModel mViewModel;
     private int mDialogType;
     ImageView btnBack;
     ImageView mImageView;
     StorageReference storageReference;
-//    Button mChooseBtn;
+    //    Button mChooseBtn;
     Button mCameraBtn;
     FirebaseAuth fAuth;
     FirebaseDatabase fStore;
-    Uri newImageUri;
     Bitmap newBitmapObj;
+    Uri newImageUrl;
     TextView username, email, phoneNumber, button_done;
     View view;
     FirebaseUser user;
@@ -127,17 +128,15 @@ public class EditProfileFragment extends Fragment {
     }
 
 
-    private void uploadImageToFirebase(final Uri imageUri) {
+    private void uploadImageToFirebase() {
         // uplaod image to firebase storage
         final StorageReference fileRef = storageReference.child("avatars/" + fAuth.getCurrentUser().getUid() + ".jpeg");
         UploadTask task = null;
 
-        if (newImageUri != null) {
-            task = fileRef.putFile(newImageUri);
-            fileRef.putFile(imageUri);
-        }
 
         if (newBitmapObj != null) {
+
+            Log.e("Error", "UPLOADING!!");
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             newBitmapObj.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             byte[] data = baos.toByteArray();
@@ -151,8 +150,10 @@ public class EditProfileFragment extends Fragment {
                     fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            Picasso.get().load(uri).into(mImageView);
-                            newImageUri = uri;
+                            Log.e("Error", "UPLOADED!!: " + uri);
+
+                            Glide.with(getContext()).load(uri).into(mImageView);
+                            newImageUrl = uri;
                             updateProfileAction();
                         }
                     });
@@ -170,8 +171,8 @@ public class EditProfileFragment extends Fragment {
     }
 
     private void updateProfile() {
-        if (newImageUri != null || newBitmapObj != null) {
-            uploadImageToFirebase(newImageUri);
+        if (newBitmapObj != null) {
+            uploadImageToFirebase();
         } else {
             updateProfileAction();
         }
@@ -187,22 +188,31 @@ public class EditProfileFragment extends Fragment {
         values.put("mobile", phoneNumber.getText().toString());
         values.put("username", username.getText().toString());
 
-        Toast.makeText(getContext(), "phase 2 ", Toast.LENGTH_LONG).show();
+        if (newImageUrl != null)
+            values.put("avatar", newImageUrl.toString());
 
-        if (newImageUri != null) {
-            values.put("avatar", newImageUri.toString());
-            System.out.println("newImageUri: " + newImageUri);
-//            dbRef.child("avatar").setValue(newImageUri);
-        }
+        Toast.makeText(getContext(), "phase 2 ", Toast.LENGTH_LONG).show();
 
         dbRef.updateChildren(values);
 
 
-        if (!email.getText().equals(fAuth.getCurrentUser().getEmail()) && !email.getText().toString().isEmpty()) {
+        Log.e("Error", email.getText().toString());
+        Log.e("Error", fAuth.getCurrentUser().getEmail().toString());
+        Log.e("Error", fAuth.getCurrentUser().getEmail().toString().equals(email.getText().toString()) ? "Njejt" : "Ndryshe");
+
+        if (!fAuth.getCurrentUser().getEmail().equals(email.getText().toString()) && email.getText().toString().length() > 0) {
+
+            Log.e("TEASF", "ASSAFJASFJASFJASFJASJFAS");
+
             fAuth.getCurrentUser().updateEmail(email.getText().toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Toast.makeText(getContext(), "Email changed", Toast.LENGTH_LONG).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.e("Fail: ", e.getMessage());
                 }
             });
         }
@@ -242,22 +252,24 @@ public class EditProfileFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode != 0) {
+            Uri uri;
+
             switch (requestCode) {
                 case 0:
                     if (resultCode == -1 && data != null) {
+                        Log.e("Error", "Vec po testoj");
                         newBitmapObj = (Bitmap) data.getExtras().get("data");
-                        Glide.with(getContext()).load(newBitmapObj).into(mImageView);
-                        mImageView.setImageBitmap(newBitmapObj);
-                        newImageUri = null;
                     }
 
                     break;
                 case 1:
                     if (resultCode == -1 && data != null) {
 //                        Glide.with(getContext()).load(user.getAvatar()).into(mImageView);
-                        mImageView.setImageURI(data.getData());
-                        newImageUri = data.getData();
-                        newBitmapObj = null;
+                        try {
+                            newBitmapObj = MediaStore.Images.Media.getBitmap(this.getContext().getContentResolver(), data.getData());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                     break;
             }
@@ -282,10 +294,11 @@ public class EditProfileFragment extends Fragment {
 
                 System.out.println("ASFASF: " + user.getUsername());
                 System.out.println("ASFASF: " + user.getMobile());
+                System.out.println("ASFASF: " + user.getAvatar());
 
                 email.setText(user.getEmail());
                 username.setText(user.getUsername());
-                Glide.with(getContext()).load(user.getAvatar()).into(mImageView);
+                Glide.with(getContext()).load(newBitmapObj != null ? newBitmapObj : user.getAvatar()).skipMemoryCache(true).into(mImageView);
                 phoneNumber.setText(user.getMobile());
 
             }

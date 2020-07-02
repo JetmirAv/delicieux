@@ -13,8 +13,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="50dp"
-        android:orientation="vertical"
         android:gravity="center_vertical"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -42,14 +42,18 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:hint="@string/email"
+                android:hint="Email Address"
                 android:inputType="textEmailAddress"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 app:met_baseColor="@color/colorPrimaryDark"
                 app:met_floatingLabel="normal"
                 app:met_textColor="@color/colorPrimaryDark" />
+
 
         </FrameLayout>
 

@@ -20,8 +20,7 @@ import static android.os.Build.VERSION_CODES.N;
 public class LocaleManager {
 
     public static final  String LANGUAGE_ENGLISH   = "en";
-    public static final  String LANGUAGE_UKRAINIAN = "uk";
-    public static final  String LANGUAGE_RUSSIAN   = "ru";
+    public static final  String LANGUAGE_ALBANIAN   = "al";
     private static final String LANGUAGE_KEY       = "language_key";
 
     private final SharedPreferences prefs;

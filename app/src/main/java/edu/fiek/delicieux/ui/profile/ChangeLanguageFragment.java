@@ -29,6 +29,7 @@ import java.util.Locale;
 
 import edu.fiek.delicieux.MainActivity;
 import edu.fiek.delicieux.R;
+import edu.fiek.delicieux.helpers.LocaleManager;
 
 
 public class ChangeLanguageFragment extends Fragment {
@@ -58,15 +59,14 @@ public class ChangeLanguageFragment extends Fragment {
         albtxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewLocale("al");
-
+                setNewLocale(LocaleManager.LANGUAGE_ALBANIAN);
             }
         });
 
         engtxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewLocale("en");
+                setNewLocale(LocaleManager.LANGUAGE_ENGLISH);
 
             }
         });

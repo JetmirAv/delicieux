@@ -54,12 +54,6 @@ public class ListFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.shop_list_rec_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        listItemsAdapter = new ListItemsAdapter(getContext(), items);
-//        listItemsAdapter = new ListItemsAdapter(getContext(), items, getContext().getString(R.string.remove));
-
-
-//        ((TextView) view.findViewById(R.id.test12))
-//                .setText(args.getString(ARG_OBJECT));
     }
 
     @Override
